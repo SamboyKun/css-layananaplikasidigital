@@ -1,0 +1,218 @@
+
+/* Menggunakan inline style untuk demo. Jika Qiospay/Qrisdinamis.css sudah stabil, Anda bisa kembali ke @import. */
+    :root {
+        --primary-soft: #303F9F;
+        --primary-softer: #60B8FF;
+        --secondary-soft: #f8f9fe;
+        --text-soft: #004C8A;
+        --shadow-soft: rgba(108, 99, 255, 0.15);
+        --success-soft: #4ade80;
+        --error-soft: #f87171;
+    }
+    
+    body {
+      background-color: #f0f2f5;
+      font-family: 'Nunito', sans-serif;
+      color: var(--text-soft);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .container-fluid-custom {
+        max-width: 600px;
+        padding: 0 15px;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      padding: 30px;
+      border: none;
+      width: 100%;
+    }
+
+    .header-section {
+        display: flex;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+
+    .header-section img {
+        border-radius: 50%;
+        margin-right: 15px;
+        border: 2px solid var(--secondary-soft);
+    }
+
+    .header-section .name {
+      font-size: 1.8rem;
+      color: var(--text-soft);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .table-responsive-custom {
+        overflow-x: auto;
+    }
+
+    .table-clear {
+        --bs-table-bg: transparent;
+        --bs-table-hover-bg: transparent;
+        --bs-table-striped-bg: transparent;
+        --bs-table-active-bg: transparent;
+        --bs-table-border-color: #e0e0e0;
+        color: var(--text-soft);
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .table-clear th, .table-clear td {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--bs-table-border-color);
+    }
+    
+    .table-clear tr:last-child td {
+        border-bottom: none;
+    }
+
+    .table-clear td.left strong {
+        font-weight: 600;
+        color: var(--text-soft);
+    }
+
+    .table-clear td.right {
+        text-align: right;
+        font-weight: 500;
+    }
+
+    .badge-danger-custom {
+        background-color: var(--error-soft) !important;
+        color: #fff !important;
+        padding: 6px 12px;
+        border-radius: 8px;
+        display: inline-block;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+
+    .qris-section {
+        text-align: center;
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+
+    .qris-section h5 {
+        font-size: 1.35rem;
+        color: var(--primary-soft);
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    /* MODIFIKASI UNTUK #qrcodeContainer dan canvas/img di dalamnya */
+    #qrcodeContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px; /* Sedikit padding untuk menjaga QR tidak terlalu mepet */
+        background-color: #ffffff; /* Latar belakang putih untuk QR */
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        max-width: 250px; /* Batasi lebar maksimal kontainer */
+        height: 250px; /* Beri tinggi tetap agar rasio terjaga */
+        margin: 0 auto 20px auto;
+        overflow: hidden; /* Penting untuk memastikan QR tidak keluar dari box */
+        position: relative; /* Penting untuk centering elemen di dalamnya */
+    }
+
+    #qrcodeContainer canvas,
+    #qrcodeContainer img {
+        display: block; /* Menghilangkan margin bawaan */
+        max-width: 100%; /* Pastikan elemen QR tidak melebihi lebar kontainer */
+        max-height: 100%; /* Pastikan elemen QR tidak melebihi tinggi kontainer */
+        width: auto; /* Izinkan lebar menyesuaikan */
+        height: auto; /* Izinkan tinggi menyesuaikan */
+        margin: auto; /* Otomatis centering secara vertikal dan horizontal */
+        position: absolute; /* Posisikan absolut untuk centering sempurna */
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    /* #qrisImage (yang asli) tidak lagi digunakan, bisa disembunyikan total */
+    #qrisImage {
+        display: none; 
+    }
+
+    .btn-custom-primary {
+        background-color: var(--primary-soft);
+        color: white;
+        font-size: 1.1rem;
+        border-radius: 10px;
+        padding: 14px 25px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        width: 100%;
+        font-weight: 600;
+        border: none;
+    }
+
+    .btn-custom-primary:hover {
+        background-color: var(--primary-softer);
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    .payment-status-text {
+        color: var(--text-soft);
+        margin-top: 20px;
+        margin-bottom: 15px;
+        font-size: 0.95rem;
+        text-align: center;
+    }
+
+    /* Responsiveness for smaller screens */
+    @media (max-width: 767.98px) {
+        body {
+            padding: 15px 0;
+            justify-content: flex-start;
+        }
+        .container-fluid-custom {
+            padding: 0 10px;
+        }
+        .card {
+            padding: 20px;
+            border-radius: 12px;
+        }
+        .header-section {
+            flex-direction: column;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header-section img {
+            margin-right: 0;
+            margin-bottom: 15px;
+        }
+        .header-section .name {
+            font-size: 1.5rem;
+        }
+        .table-clear th, .table-clear td {
+            padding: 10px 0;
+        }
+        .qris-section h5 {
+            font-size: 1.15rem;
+        }
+        #qrcodeContainer {
+            max-width: 300px; /* Sedikit lebih kecil di mobile */
+            height: 300px; /* Sesuaikan tinggi */
+            padding: 8px; /* Padding sedikit di mobile */
+        }
+        .btn-custom-primary {
+            font-size: 1rem;
+            padding: 12px 20px;
+        }
+    }
+   
